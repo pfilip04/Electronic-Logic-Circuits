@@ -359,6 +359,140 @@ switchB6.addEventListener('click', () => {
     updateCircuit6();
 });
 
+
+// Circuit 7: FULL-ADDER
+
+const switches7 = document.querySelectorAll('.clc[id*="7"]');
+
+function fadd(number, carry) {
+
+    const suffix = number === 1 ? '' : `_${number}`;
+
+    const switchA7 = document.getElementById('switchA7' + suffix);
+    const switchB7 = document.getElementById('switchB7' + suffix);
+
+    const a = switchA7.classList.contains('on');
+    const b = switchB7.classList.contains('on');
+
+    const c = carry;
+
+    const out = a ^ b ^ c;
+    const cout = (a && b) || (a && c) || (b && c);
+
+    setActive('wireIn' + number + 'A7', a);
+    setActive('wireIn' + number + 'A7_2', a);
+    setActive('NumA7' + suffix, a);
+    setContent('NumA7' + suffix, Number(a));
+
+    setActive('wireIn' + number + 'B7', b)
+    setActive('NumB7' + suffix, b);
+    setContent('NumB7' + suffix, Number(b));
+
+    const res77 = document.getElementById('resultA7' + suffix);
+
+    res77.classList.toggle('on', out);
+
+    setActive('wireOutA7' + suffix, out);
+    setActive('NumOut7' + suffix, out);
+    setContent('NumOut7' + suffix, Number(out));
+
+    setActive('carryOut' + number + 'A7', cout);
+    setActive('carryOut' + number + 'B7', cout);
+    setActive('carryOut' + number + 'C7', cout);
+    setActive('carryOut' + number + 'D7', cout);
+    setActive('wireCarryIn' + number + 'A7', cout);
+    setActive('NumC7' + suffix, cout);
+    setContent('NumC7' + suffix, Number(cout));
+
+    return cout;
+}
+
+function formatNum(number) {
+
+    if (number < 10) {
+
+        return '0' + number;
+    }
+
+    return '' + number;
+}
+
+function formatRes(number) {
+
+    if (number < 10) {
+
+        return '00' + number;
+    }
+
+    if (number < 100) {
+
+        return '0' + number;
+    }
+
+    return '' + number;
+}
+
+function updateCircuit7() {
+
+    let carry = 0;
+    for (let i = 1; i <= 6; i++) {
+
+        carry = fadd(i, carry);
+    }
+
+    const r77 = document.getElementById('resultA7_7');
+
+
+    r77.classList.toggle('on', carry);
+
+    setActive('NumOut7_7', carry);
+    setContent('NumOut7_7', Number(carry));
+
+    let num1 = 0;
+    let num2 = 0;
+
+    let result = 0;
+
+    let suffix = '';
+
+    for (let i = 1; i <= 6; i++) {
+
+        let switchA7 = document.getElementById('switchA7'+ suffix);
+        let switchB7 = document.getElementById('switchB7'+ suffix);
+        let result7 = document.getElementById('resultA7'+ suffix);
+
+        let sA7 = switchA7.classList.contains('on');
+        let sB7 = switchB7.classList.contains('on');
+        let r7 = result7.classList.contains('on');
+
+        num1 = num1 + Number(sA7) * (2 ** (i - 1));
+
+        num2 = num2 + Number(sB7) * (2 ** (i - 1));
+
+        result = result + Number(r7) * (2 ** (i - 1));
+
+        suffix = `_${i + 1}`;
+    }
+
+    const result77 = document.getElementById('resultA7_7');
+    const r = result77.classList.contains('on');
+    result = result + Number(r) * (2 ** 6);
+
+    setContent('NumDecA7', formatNum(num1));
+    setContent('NumDecB7', formatNum(num2));
+    setContent('NumDecOut7', formatRes(result));
+}
+
+switches7.forEach(sw => {
+
+    sw.addEventListener('click', () => {
+
+        sw.classList.toggle('on');
+        updateCircuit7();
+    });
+});
+
+
 // Circuit 8: Binary Decoder
 
 const switchP8 = document.getElementById('switchP8');
