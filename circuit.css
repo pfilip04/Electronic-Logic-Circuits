@@ -69,6 +69,11 @@ svg {
     filter: drop-shadow(0 0 10px #ee6dff);
 }
 
+.wire.sep {
+    stroke: #bdbdbd;
+    stroke-width: 3;
+}
+
 .wire.active {
     stroke: #cef522;
     filter: drop-shadow(0 0 8px #22c55e);
@@ -78,6 +83,10 @@ svg {
     fill: #2d2f43;
     stroke: #99999999;
     stroke-width: 2;
+}
+
+.gate.xor {
+    fill: none;
 }
 
 .lamp {
@@ -108,6 +117,16 @@ svg {
     transition: fill 0.3s;
 }
 
+.txtbox.clc {
+    cursor: pointer;
+}
+
+.txtbox.clc.on, .txtbox.on {
+    fill: #749205;
+    stroke: #cef522;
+    filter: drop-shadow(0 0 10px #22c55e);
+}
+
 .switch.on {
     fill: #b5ec9b;
 }
@@ -121,6 +140,7 @@ svg text {
 }
 
 .res_txt {
+    pointer-events: none;
     fill: #9eb1cbce;
     font-size: 30px;
 }
