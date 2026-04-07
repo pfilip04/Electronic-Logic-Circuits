@@ -348,20 +348,20 @@
 
 
             <rect id="switchA6" class="txtbox clc" x="300" y="20" width="50" height="40" rx="8"/>
-            <text id="NumA6" class="res_txt" x="316" y="50">0</text>
+            <text id="NumA6" class="res_txt" x="317" y="50">0</text>
 
             <text id="Plus" class="res_txt" x="362" y="50">+</text>
 
             <rect id="switchB6" class="txtbox clc" x="390" y="20" width="50" height="40" rx="8"/>
-            <text id="NumB6" class="res_txt" x="406" y="50">0</text>
+            <text id="NumB6" class="res_txt" x="407" y="50">0</text>
 
             <text id="Equals" class="res_txt" x="452" y="50">=</text>
 
             <rect id="lampA6" class="txtbox" x="480" y="20" width="50" height="40" rx="8"/>
-            <text id="NumOutA6" class="res_txt" x="496" y="50">0</text>
+            <text id="NumOutA6" class="res_txt" x="497" y="50">0</text>
 
             <rect id="lampB6" class="txtbox" x="540" y="20" width="50" height="40" rx="8"/>
-            <text id="NumOutB6" class="res_txt" x="556" y="50">0</text>
+            <text id="NumOutB6" class="res_txt" x="557" y="50">0</text>
 
 
             <use href="#and_gate" x="380" y="120" width="80" height="80"/>
@@ -451,8 +451,8 @@
             <text id="NumOut7_6" class="res_txt" x="192" y="370">0</text>
             <text id="NumOut7_7" class="res_txt" x="112" y="370">0</text>
 
-            <text id="NumDecA7" class="res_txt" x="13" y="50">00</text>
-            <text id="NumDecB7" class="res_txt" x="13" y="110">00</text>
+            <text id="NumDecA7" class="res_txt" x="13.5" y="50">00</text>
+            <text id="NumDecB7" class="res_txt" x="13.5" y="110">00</text>
             <text id="NumDecOut7" class="res_txt" x="15" y="370">000</text>
 
 
@@ -538,8 +538,8 @@
 
         <svg viewBox="0 0 800 400">
 
-            <rect id="Textbox8" class="txtbox" x="5" y="20" width="50" height="40" rx="8"/>
-            <text id="NumA8" class="res_txt" x="13" y="50">0</text>
+            <rect id="Textbox8" class="txtbox" x="10" y="20" width="40" height="40" rx="8"/>
+            <text id="NumA8" class="res_txt" x="13.5" y="50">0</text>
             <text id="NumB8" class="res_txt" x="30" y="50">0</text>
 
             <rect id="switchP8" class="switch" x="10" y="90" width="40" height="60" rx="8"/>
@@ -635,7 +635,7 @@
 
         </svg>
 
-        <h2>WRITE ENABLE circuit</h2>
+        <h2>WRITE-ENABLE circuit</h2>
 
         <svg viewBox="0 0 800 400">
 
@@ -686,6 +686,100 @@
             <text id="Out10" class="res_txt" x="710" y="155">0</text>
             <line id="wireOut10" class="wire" x1="690" y1="165" x2="750" y2="165"/>
             <circle id="lamp10" class="lamp" cx="770" cy="165" r="20"/>
+
+        </svg>
+
+        <h2>Memory circuit</h2>
+
+        <svg viewBox="0 0 800 400">
+
+            <text x="110" y="202">READ</text>
+            <text x="110" y="247">WRITE</text>
+            <text x="110" y="332">DATA</text>
+
+            <text x="690" y="217">OUT</text>
+
+            <text x="80" y="45">ROW</text>
+            <text x="345" y="45">COLUMN</text>
+
+            <rect id="switchRD11" class="txtbox clc" x="20" y="190" width="40" height="40" rx="8"/>
+            <rect id="switchWT11" class="txtbox clc" x="20" y="235" width="40" height="40" rx="8"/>
+            <rect id="switchDT11" class="txtbox clc" x="20" y="320" width="40" height="40" rx="8"/>
+
+            <rect id="switchA11" class="txtbox clc" x="130" y="20" width="40" height="40" rx="8"/>
+            <rect id="switchB11" class="txtbox clc" x="175" y="20" width="40" height="40" rx="8"/>
+            <rect id="switchC11" class="txtbox clc" x="250" y="20" width="40" height="40" rx="8"/>
+            <rect id="switchD11" class="txtbox clc" x="295" y="20" width="40" height="40" rx="8"/>
+
+
+            <rect id="d11_frame" class="txtbox frame" x="400" y="90" width="270" height="270" rx="8"/>
+
+            <rect id="Data11_0000" class="txtbox select" x="420" y="110" width="50" height="50" rx="8"/>
+            <rect id="Data11_0001" class="txtbox" x="480" y="110" width="50" height="50" rx="8"/>
+            <rect id="Data11_0010" class="txtbox" x="540" y="110" width="50" height="50" rx="8"/>
+            <rect id="Data11_0011" class="txtbox" x="600" y="110" width="50" height="50" rx="8"/>
+
+            <rect id="Data11_0100" class="txtbox" x="420" y="170" width="50" height="50" rx="8"/>
+            <rect id="Data11_0101" class="txtbox" x="480" y="170" width="50" height="50" rx="8"/>
+            <rect id="Data11_0110" class="txtbox" x="540" y="170" width="50" height="50" rx="8"/>
+            <rect id="Data11_0111" class="txtbox" x="600" y="170" width="50" height="50" rx="8"/>
+
+            <rect id="Data11_1000" class="txtbox" x="420" y="230" width="50" height="50" rx="8"/>
+            <rect id="Data11_1001" class="txtbox" x="480" y="230" width="50" height="50" rx="8"/>
+            <rect id="Data11_1010" class="txtbox" x="540" y="230" width="50" height="50" rx="8"/>
+            <rect id="Data11_1011" class="txtbox" x="600" y="230" width="50" height="50" rx="8"/>
+
+            <rect id="Data11_1100" class="txtbox" x="420" y="290" width="50" height="50" rx="8"/>
+            <rect id="Data11_1101" class="txtbox" x="480" y="290" width="50" height="50" rx="8"/>
+            <rect id="Data11_1110" class="txtbox" x="540" y="290" width="50" height="50" rx="8"/>
+            <rect id="Data11_1111" class="txtbox" x="600" y="290" width="50" height="50" rx="8"/>
+
+            <text id="NumRD11" class="res_txt" x="32" y="220">0</text>
+            <text id="NumWT11" class="res_txt" x="32" y="265">0</text>
+            <text id="NumDT11" class="res_txt" x="32" y="350">0</text>
+
+            <text id="NumAddrA11" class="res_txt" x="142" y="50">0</text>
+            <text id="NumAddrB11" class="res_txt" x="187" y="50">0</text>
+            <text id="NumAddrC11" class="res_txt" x="262" y="50">0</text>
+            <text id="NumAddrD11" class="res_txt" x="307" y="50">0</text>
+
+            <text id="NumData11_0000" class="res_txt" x="436.5" y="145">0</text>
+            <text id="NumData11_0001" class="res_txt" x="496.5" y="145">0</text>
+            <text id="NumData11_0010" class="res_txt" x="556.5" y="145">0</text>
+            <text id="NumData11_0011" class="res_txt" x="616.5" y="145">0</text>
+
+            <text id="NumData11_0100" class="res_txt" x="436.5" y="205">0</text>
+            <text id="NumData11_0101" class="res_txt" x="496.5" y="205">0</text>
+            <text id="NumData11_0110" class="res_txt" x="556.5" y="205">0</text>
+            <text id="NumData11_0111" class="res_txt" x="616.5" y="205">0</text>
+
+            <text id="NumData11_1000" class="res_txt" x="436.5" y="265">0</text>
+            <text id="NumData11_1001" class="res_txt" x="496.5" y="265">0</text>
+            <text id="NumData11_1010" class="res_txt" x="556.5" y="265">0</text>
+            <text id="NumData11_1011" class="res_txt" x="616.5" y="265">0</text>
+
+            <text id="NumData11_1100" class="res_txt" x="436.5" y="325">0</text>
+            <text id="NumData11_1101" class="res_txt" x="496.5" y="325">0</text>
+            <text id="NumData11_1110" class="res_txt" x="556.5" y="325">0</text>
+            <text id="NumData11_1111" class="res_txt" x="616.5" y="325">0</text>
+
+            <line id="wireRD11" class="wire" x1="60" y1="210" x2="400" y2="210"/>
+            <line id="wireWT11" class="wire" x1="60" y1="255" x2="400" y2="255"/>
+            <line id="wireDT11" class="wire" x1="60" y1="340" x2="400" y2="340"/>
+
+            <line id="wireA11" class="wire" x1="150" y1="60" x2="150" y2="110"/>
+            <line id="wireB11" class="wire" x1="195" y1="60" x2="195" y2="130"/>
+            <line id="wireC11" class="wire" x1="270" y1="60" x2="270" y2="150"/>
+            <line id="wireD11" class="wire" x1="315" y1="60" x2="315" y2="170"/>
+
+            <line id="wireA11_2" class="wire" x1="150" y1="110" x2="400" y2="110"/>
+            <line id="wireB11_2" class="wire" x1="195" y1="130" x2="400" y2="130"/>
+            <line id="wireC11_2" class="wire" x1="270" y1="150" x2="400" y2="150"/>
+            <line id="wireD11_2" class="wire" x1="315" y1="170" x2="400" y2="170"/>
+
+            <line id="wireOut11" class="wire" x1="670" y1="225" x2="750" y2="225"/>
+
+            <circle id="lamp11" class="lamp" cx="770" cy="225" r="20"/>
 
         </svg>
 

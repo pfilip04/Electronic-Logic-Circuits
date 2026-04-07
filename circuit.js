@@ -15,10 +15,22 @@ function getActive(id) {
 
 // Setter for text content inside of the svg text element
 
-function setContent(id, content, condition = true) {
+function setContent(id, content) {
 
     const el = document.getElementById(id);
-    if (el && condition) el.textContent = content;
+    if (el) el.textContent = content;
+}
+
+function setSelect(id, select) {
+
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('select', select);
+}
+
+function setError(id, error) {
+
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('err', error);
 }
 
 
@@ -571,6 +583,28 @@ function updateCircuit9() {
 
     const a = switchA9.classList.contains('on');
     const b = switchB9.classList.contains('on');
+
+    if (a && b) {
+
+        setError('wireOutX9', true);
+        setError('wireOutX9_2', true);
+        setError('wireOutX9_3', true);
+        setError('wireOutX9_4', true);
+        setError('wireInNOut9', true);
+        setError('Out9', true);
+        setContent('Out9', 0);
+        return;
+    }
+    else {
+
+        setError('wireOutX9', false);
+        setError('wireOutX9_2', false);
+        setError('wireOutX9_3', false);
+        setError('wireOutX9_4', false);
+        setError('wireInNOut9', false);
+        setError('Out9', false);
+    }
+
     const c = getActive('wireInNOut9');
 
     const out1 = a || c;
@@ -607,7 +641,7 @@ switchB9.addEventListener('click', () => {
     updateCircuit9();
 });
 
-// Circuit 10: WRITE ENABLE circuit
+// Circuit 10: WRITE-ENABLE circuit
 
 const switchA10 = document.getElementById('switchA10');
 const switchB10 = document.getElementById('switchB10');
@@ -670,4 +704,117 @@ switchB10.addEventListener('click', () => {
     switchB10.classList.toggle('on');
     updateCircuit10();
     updateCircuit10();
+});
+
+// Circuit 11 : Memory circuit
+
+const switches11 = document.querySelectorAll('.clc[id*="11"]');
+const data11 = document.querySelectorAll('[id*="Data11_"]');
+
+const switchRD11 = document.getElementById('switchRD11');
+const switchWT11 = document.getElementById('switchWT11');
+const switchDT11 = document.getElementById('switchDT11');
+
+const switchA11 = document.getElementById('switchA11');
+const switchB11 = document.getElementById('switchB11');
+const switchC11 = document.getElementById('switchC11');
+const switchD11 = document.getElementById('switchD11');
+
+const lamp11 = document.getElementById('lamp11');
+
+function updateCircuit11() {
+
+    const read = switchRD11.classList.contains('on');
+    const write = switchWT11.classList.contains('on');
+    const data = switchDT11.classList.contains('on');
+
+    const a = switchA11.classList.contains('on');
+    const b = switchB11.classList.contains('on');
+    const c = switchC11.classList.contains('on');
+    const d = switchD11.classList.contains('on');
+
+    if (write && read) {
+
+        lamp11.classList.add('err');
+        setError('wireOut11', true);
+        return;
+    }
+    else {
+
+        lamp11.classList.remove('err');
+        setError('wireOut11', false);
+    }
+
+    const f11 = 'Data11_' + Number(a) + Number(b) + Number(c) + Number(d);
+    const fd11 = 'Num' + f11;
+
+    data11.forEach(data => {
+
+        const cond = data.id === f11;
+        setSelect(data.id, cond);
+    })
+
+    const field11 = document.getElementById(f11); 
+    const fieldData11 = document.getElementById(fd11);
+
+    const f = field11.classList.contains('on');
+
+    if (write) {
+
+        field11.classList.toggle('on', data);
+        
+        setActive(fd11, data);
+        setContent(fd11, Number(data));
+    }
+
+    if (read) {
+
+        setActive('wireOut11', f);
+        lamp11.classList.toggle('on', f)
+    }
+
+    setActive("wireA11", a);
+    setActive("wireA11_2", a);
+
+    setActive("wireB11", b);
+    setActive("wireB11_2", b);
+
+    setActive("wireC11", c);
+    setActive("wireC11_2", c);
+
+    setActive("wireD11", d);
+    setActive("wireD11_2", d);
+
+    setActive("wireRD11", read);
+    setActive("wireWT11", write);
+    setActive("wireDT11", data);
+
+    setActive("NumRD11", read);
+    setContent("NumRD11", Number(read));
+
+    setActive("NumWT11", write);
+    setContent("NumWT11", Number(write));
+
+    setActive("NumDT11", data);
+    setContent("NumDT11", Number(data));
+
+    setActive("NumAddrA11", a);
+    setActive("NumAddrB11", b);
+    setActive("NumAddrC11", c);
+    setActive("NumAddrD11", d);
+
+    setContent("NumAddrA11", Number(a));
+    setContent("NumAddrB11", Number(b));
+    setContent("NumAddrC11", Number(c));
+    setContent("NumAddrD11", Number(d));
+
+}
+
+switches11.forEach(sw => {
+
+    sw.addEventListener('click', () => {
+
+        sw.classList.toggle('on');
+        updateCircuit11();
+    });
 });
